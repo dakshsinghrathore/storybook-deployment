@@ -1,173 +1,157 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import Input from '@mui/material/Input';
-import FilledInput from '@mui/material/FilledInput';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import InputAdornment from '@mui/material/InputAdornment';
-import FormHelperText from '@mui/material/FormHelperText';
-import FormControl from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import React from "react";
+import 'tailwindcss/tailwind.css';
 
-export default function InputAdornments() {
-  const [showPassword, setShowPassword] = React.useState(false);
-
-  const handleClickShowPassword = () => setShowPassword((show) => !show);
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
+export default function Form() {
   return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-      <div>
-        <TextField
-          label="With normal TextField"
-          id="outlined-start-adornment"
-          sx={{ m: 1, width: '25ch' }}
-          InputProps={{
-            startAdornment: <InputAdornment position="start">kg</InputAdornment>,
-          }}
-        />
-        <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-          <OutlinedInput
-            id="outlined-adornment-weight"
-            endAdornment={<InputAdornment position="end">kg</InputAdornment>}
-            aria-describedby="outlined-weight-helper-text"
-            inputProps={{
-              'aria-label': 'weight',
-            }}
-          />
-          <FormHelperText id="outlined-weight-helper-text">Weight</FormHelperText>
-        </FormControl>
-        <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-password"
-            type={showPassword ? 'text' : 'password'}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-            label="Password"
-          />
-        </FormControl>
-        <FormControl fullWidth sx={{ m: 1 }}>
-          <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-amount"
-            startAdornment={<InputAdornment position="start">$</InputAdornment>}
-            label="Amount"
-          />
-        </FormControl>
-      </div>
-      <div>
-        <TextField
-          label="With normal TextField"
-          id="filled-start-adornment"
-          sx={{ m: 1, width: '25ch' }}
-          InputProps={{
-            startAdornment: <InputAdornment position="start">kg</InputAdornment>,
-          }}
-          variant="filled"
-        />
-        <FormControl sx={{ m: 1, width: '25ch' }} variant="filled">
-          <FilledInput
-            id="filled-adornment-weight"
-            endAdornment={<InputAdornment position="end">kg</InputAdornment>}
-            aria-describedby="filled-weight-helper-text"
-            inputProps={{
-              'aria-label': 'weight',
-            }}
-          />
-          <FormHelperText id="filled-weight-helper-text">Weight</FormHelperText>
-        </FormControl>
-        <FormControl sx={{ m: 1, width: '25ch' }} variant="filled">
-          <InputLabel htmlFor="filled-adornment-password">Password</InputLabel>
-          <FilledInput
-            id="filled-adornment-password"
-            type={showPassword ? 'text' : 'password'}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-          />
-        </FormControl>
-        <FormControl fullWidth sx={{ m: 1 }} variant="filled">
-          <InputLabel htmlFor="filled-adornment-amount">Amount</InputLabel>
-          <FilledInput
-            id="filled-adornment-amount"
-            startAdornment={<InputAdornment position="start">$</InputAdornment>}
-          />
-        </FormControl>
-      </div>
-      <div>
-        <TextField
-          label="With normal TextField"
-          id="standard-start-adornment"
-          sx={{ m: 1, width: '25ch' }}
-          InputProps={{
-            startAdornment: <InputAdornment position="start">kg</InputAdornment>,
-          }}
-          variant="standard"
-        />
-        <FormControl variant="standard" sx={{ m: 1, mt: 3, width: '25ch' }}>
-          <Input
-            id="standard-adornment-weight"
-            endAdornment={<InputAdornment position="end">kg</InputAdornment>}
-            aria-describedby="standard-weight-helper-text"
-            inputProps={{
-              'aria-label': 'weight',
-            }}
-          />
-          <FormHelperText id="standard-weight-helper-text">Weight</FormHelperText>
-        </FormControl>
-        <FormControl sx={{ m: 1, width: '25ch' }} variant="standard">
-          <InputLabel htmlFor="standard-adornment-password">Password</InputLabel>
-          <Input
-            id="standard-adornment-password"
-            type={showPassword ? 'text' : 'password'}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                >
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
-          />
-        </FormControl>
-        <FormControl fullWidth sx={{ m: 1 }} variant="standard">
-          <InputLabel htmlFor="standard-adornment-amount">Amount</InputLabel>
-          <Input
-            id="standard-adornment-amount"
-            startAdornment={<InputAdornment position="start">$</InputAdornment>}
-          />
-        </FormControl>
-      </div>
-    </Box>
+    <div>
+      <section className="bg-gray-100">
+        <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
+            <div className="lg:col-span-2 lg:py-12">
+              <p className="max-w-xl text-lg">
+                🚀 Explore the future of tech at{" "}
+                <span className="font-bold">NSEC!</span> 🌐 Specializing in CSE,
+                we offer cutting-edge programs, expert faculty, and industry
+                connections. 🌟 Ready to innovate? Fill the form and join us on
+                the journey!
+              </p>
+
+              <div className="mt-8">
+                <a href="" className="text-2xl font-bold text-pink-600">
+                  {" "}
+                  9862255XX{" "}
+                </a>
+
+                <address className="mt-2 not-italic">
+                  {" "}
+                  Level 1, Phoenix Tech Tower Plot No : 14/46, Survey No.1, IDA
+                  Uppal, Hyderabad, Telangana 500039
+                </address>
+              </div>
+            </div>
+
+            <div className="rounded-lg bg-slate-200 p-8 shadow-lg lg:col-span-3 lg:p-12">
+              <form action="" className="space-y-4">
+                <div>
+                  <label className="sr-only" htmlFor="name">
+                    Name
+                  </label>
+                  <input
+                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    placeholder="Name"
+                    type="text"
+                    id="name"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div>
+                    <label className="sr-only" htmlFor="email">
+                      Email
+                    </label>
+                    <input
+                      className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                      placeholder="Email address"
+                      type="email"
+                      id="email"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="sr-only" htmlFor="phone">
+                      Phone
+                    </label>
+                    <input
+                      className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                      placeholder="Phone Number"
+                      type="tel"
+                      id="phone"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
+                  <div>
+                    <input
+                      className="peer sr-only"
+                      id="option1"
+                      type="radio"
+                      tabIndex="-1"
+                      name="option"
+                    />
+
+                    <label
+                      htmlFor="option1"
+                      className="block w-full rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black peer-checked:border-black peer-checked:bg-black peer-checked:text-white"
+                      tabIndex="0"
+                    >
+                      <span className="text-sm"> Admission </span>
+                    </label>
+                  </div>
+
+                  <div>
+                    <input
+                      className="peer sr-only"
+                      id="option2"
+                      type="radio"
+                      tabIndex="-1"
+                      name="option"
+                    />
+
+                    <label
+                      htmlFor="option2"
+                      className="block w-full rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black peer-checked:border-black peer-checked:bg-black peer-checked:text-white"
+                      tabIndex="0"
+                    >
+                      <span className="text-sm"> Courses </span>
+                    </label>
+                  </div>
+
+                  <div>
+                    <input
+                      className="peer sr-only"
+                      id="option3"
+                      type="radio"
+                      tabIndex="-1"
+                      name="option"
+                    />
+
+                    <label
+                      htmlFor="option3"
+                      className="block w-full rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black peer-checked:border-black peer-checked:bg-black peer-checked:text-white"
+                      tabIndex="0"
+                    >
+                      <span className="text-sm"> Events </span>
+                    </label>
+                  </div>
+                </div>
+
+                <div>
+                  <label className="sr-only" htmlFor="message">
+                    Message
+                  </label>
+
+                  <textarea
+                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
+                    placeholder="Message"
+                    rows="8"
+                    id="message"
+                  ></textarea>
+                </div>
+
+                <div className="mt-4">
+                  <button
+                    type="submit"
+                    className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
+                  >
+                    Send Enquiry
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
-
