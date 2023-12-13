@@ -1,30 +1,45 @@
-export default () => {
-    return (
-        <section className="py-14">
-            <div className="max-w-screen-xl mx-auto md:px-8">
-                <div className="items-center gap-x-12 sm:px-4 md:px-0 lg:flex">
-                    <div className="flex-1 sm:hidden lg:block">
-                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" className="md:max-w-lg sm:rounded-lg" alt="" />
-                    </div>
-                    <div className="max-w-xl px-4 space-y-3 mt-6 sm:px-0 md:mt-0 lg:max-w-2xl">
-                        <h3 className="text-indigo-600 font-semibold">
-                            Professional services
-                        </h3>
-                        <p className="text-gray-800 text-3xl font-semibold sm:text-4xl">
-                            Build your SaaS solution with help from our experts
-                        </p>
-                        <p className="mt-3 text-gray-600">
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum, sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
-                        </p>
-                        <a href="javascript:void(0)" className="inline-flex gap-x-1 items-center text-indigo-600 hover:text-indigo-500 duration-150 font-medium">
-                            Learn more
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
-                                <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    )
+import React from 'react'
+
+export default function Cta() {
+  return (
+    <div>
+      {/*
+  Heads up! 👋
+
+  This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
+*/}
+
+<section className="overflow-hidden bg-gray-50 sm:grid sm:grid-cols-2">
+  <div className="p-8 md:p-12 lg:px-16 lg:py-24">
+    <div className="mx-auto max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
+      <h2 className="text-2xl font-bold text-gray-900 md:text-3xl">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit
+      </h2>
+
+      <p className="hidden text-gray-500 md:mt-4 md:block">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam
+        sed. Quam a scelerisque amet ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat
+        quisque ut interdum tincidunt duis.
+      </p>
+
+      <div className="mt-4 md:mt-8">
+        <a
+          href="#"
+          className="inline-block rounded bg-emerald-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:outline-none focus:ring focus:ring-yellow-400"
+        >
+          Get Started Today
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <img
+    alt="Student"
+    src="https://images.unsplash.com/photo-1464582883107-8adf2dca8a9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+    className="h-56 w-full object-cover sm:h-full"
+  />
+</section>
+
+    </div>
+  )
 }
