@@ -17,37 +17,37 @@ export default {
 };
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary = {
-  args: {
-    primary: true,
-    label: 'Primary',
-  },
-};
+  export const Primary = {
+    args: {
+      primary: true,
+      label: 'Primary',
+    },
+  };
 
-export const Secondary = {
-  args: {
-    label: 'Secondary',
-  },
-};
+  export const Secondary = {
+    args: {
+      label: 'Secondary',
+    },
+  };
 
-export const Large = {
-  args: {
-    size: 'large',
-    label: 'Large',
-  },
-};
+  export const Large = {
+    args: {
+      size: 'large',
+      label: 'Large',
+    },
+  };
 
-export const Small = {
-  args: {
-    size: 'small',
-    label: 'Small',
-  },
-};
+  export const Small = {
+    args: {
+      size: 'small',
+      label: 'Small',
+    },
+  };
 
-export const Warning = {
-  args: {
-    primary: true,
-    label: 'Delete now',
-    backgroundColor: 'red',
-  }
-};
+  export const Warning = {
+    args: {
+      primary: true,
+      label: 'Delete now',
+      backgroundColor: 'red',
+    }
+  };

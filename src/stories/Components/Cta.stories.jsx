@@ -12,6 +12,6 @@ export default {
     },
 };
 
+export const CtaPage = (args) => <Cta {...args} />;
 
-  
-    export const CtaPage= (args) => <Cta {...args} />;  
+
