@@ -43,6 +43,7 @@ Cta.propTypes = {
   buttonText: PropTypes.string,
   buttonLink: PropTypes.string,
   imageSrc: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 Cta.defaultProps = {
