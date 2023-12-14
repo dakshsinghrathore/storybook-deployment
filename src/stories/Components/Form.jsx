@@ -7,26 +7,7 @@ export default function Form() {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
   } = useForm();
-
-  // Use watch to track changes in form values
-  const name = watch("name");
-  const email = watch("email");
-  const phone = watch("phone");
-  const option = watch("option");
-
-  const [isNameValid, setIsNameValid] = React.useState(false);
-  const [isEmailValid, setIsEmailValid] = React.useState(false);
-  const [isPhoneValid, setIsPhoneValid] = React.useState(false);
-  const [isOptionValid, setIsOptionValid] = React.useState(false);
-
-  React.useEffect(() => {
-    setIsNameValid(name?.length <= 30);
-    setIsEmailValid(email && /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email));
-    setIsPhoneValid(phone?.length === 10);
-    setIsOptionValid(  !!option);
-  }, [name, email, phone, option]);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -54,7 +35,7 @@ export default function Form() {
 
                 <address className="mt-2 not-italic">
                   {" "}
-                  Level 1, Phoenix Tech Tower Plot No: 14/46, Survey No.1, IDA
+                  Level 1, Phoenix Tech Tower Plot No : 14/46, Survey No.1, IDA
                   Uppal, Hyderabad, Telangana 500039
                 </address>
               </div>
@@ -73,7 +54,7 @@ export default function Form() {
                     id="name"
                     {...register("name", { maxLength: 30 })}
                   />
-                  {errors.name && <p className="text-red-600 text-sm">Name shouldn't be more than 30 characters.</p>}
+                  {errors.name && <p className="text-sm text-red-500">Name should not be more than 30 characters.</p>}
                 </div>
 
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -94,7 +75,7 @@ export default function Form() {
                         },
                       })}
                     />
-                    {errors.email && <p className="text-red-600 text-sm">{errors.email.message}</p>}
+                    {errors.email && <p className="text-sm text-red-500">{errors.email.message}</p>}
                   </div>
 
                   <div>
@@ -114,7 +95,7 @@ export default function Form() {
                         },
                       })}
                     />
-                    {errors.phone && <p className="text-red-600 text-sm">{errors.phone.message}</p>}
+                    {errors.phone && <p className="text-sm text-red-500">{errors.phone.message}</p>}
                   </div>
                 </div>
 
@@ -176,7 +157,7 @@ export default function Form() {
                     </label>
                   </div>
                 </div>
-                {errors.option && <p className="text-red-600 text-sm">Please select at least one option.</p>}
+                {errors.option && <p className="text-sm text-red-500">Please select at least one option.</p>}
 
                 <div>
                   <label className="sr-only" htmlFor="message">
