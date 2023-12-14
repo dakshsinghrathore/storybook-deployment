@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import "tailwindcss/tailwind.css";
 import { useForm } from "react-hook-form";
 
-export default function Form() {
+export default function Form({ onSubmitData, nameMaxLength, emailPattern, phoneMaxLength, optionRequired, messageRegister, nameHelperText, emailHelperText, phoneHelperText, optionHelperText }) {
   const {
     register,
     handleSubmit,
@@ -10,7 +11,7 @@ export default function Form() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    onSubmitData(data);
   };
 
   return (
@@ -52,11 +53,11 @@ export default function Form() {
                     placeholder="Name"
                     type="text"
                     id="name"
-                    {...register("name", { maxLength: 30 })}
+                    {...register("name", { maxLength: nameMaxLength })}
                   />
-                  {errors.name && <p className="text-sm text-red-500">Name should not be more than 30 characters.</p>}
+                  {errors.name && <p className="text-red-600 text-sm">Name should not be more than 20 characters.</p>}
+                  <p className="text-gray-600 text-xs">{nameHelperText}</p>
                 </div>
-
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
                     <label className="sr-only" htmlFor="email">
@@ -70,14 +71,14 @@ export default function Form() {
                       {...register("email", {
                         required: "Email is required",
                         pattern: {
-                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                          value: emailPattern,
                           message: "Invalid email address",
                         },
                       })}
                     />
-                    {errors.email && <p className="text-sm text-red-500">{errors.email.message}</p>}
+                    {errors.email && <p className="text-red-600 text-sm">{errors.email.message}</p>}
+                    <p className="text-gray-600 text-xs">{emailHelperText}</p>
                   </div>
-
                   <div>
                     <label className="sr-only" htmlFor="phone">
                       Phone
@@ -90,12 +91,13 @@ export default function Form() {
                       {...register("phone", {
                         required: "Phone number is required",
                         maxLength: {
-                          value: 10,
+                          value: phoneMaxLength,
                           message: "Phone number should not exceed 10 digits",
                         },
                       })}
                     />
-                    {errors.phone && <p className="text-sm text-red-500">{errors.phone.message}</p>}
+                    {errors.phone && <p className="text-red-600 text-sm">{errors.phone.message}</p>}
+                    <p className="text-gray-600 text-xs">{phoneHelperText}</p>
                   </div>
                 </div>
 
@@ -107,7 +109,7 @@ export default function Form() {
                       type="radio"
                       tabIndex="-1"
                       name="option"
-                      {...register("option", { required: true })}
+                      {...register("option", { required: optionRequired })}
                     />
 
                     <label
@@ -126,7 +128,7 @@ export default function Form() {
                       type="radio"
                       tabIndex="-1"
                       name="option"
-                      {...register("option", { required: true })}
+                      {...register("option", { required: optionRequired })}
                     />
 
                     <label
@@ -145,7 +147,7 @@ export default function Form() {
                       type="radio"
                       tabIndex="-1"
                       name="option"
-                      {...register("option", { required: true })}
+                      {...register("option", { required: optionRequired })}
                     />
 
                     <label
@@ -157,7 +159,8 @@ export default function Form() {
                     </label>
                   </div>
                 </div>
-                {errors.option && <p className="text-sm text-red-500">Please select at least one option.</p>}
+                {errors.option && <p className="text-red-600 text-sm">Please select at least one option.</p>}
+                <p className="text-gray-600 text-xs">{optionHelperText}</p>
 
                 <div>
                   <label className="sr-only" htmlFor="message">
@@ -169,7 +172,7 @@ export default function Form() {
                     placeholder="Message"
                     rows="8"
                     id="message"
-                    {...register("message")}
+                    {...register("message", messageRegister)}
                   ></textarea>
                 </div>
 
@@ -190,3 +193,29 @@ export default function Form() {
     </div>
   );
 }
+
+Form.propTypes = {
+  onSubmitData: PropTypes.func,
+  nameMaxLength: PropTypes.number,
+  emailPattern: PropTypes.string,
+  phoneMaxLength: PropTypes.number,
+  optionRequired: PropTypes.bool,
+  messageRegister: PropTypes.object,
+  nameHelperText: PropTypes.string,
+  emailHelperText: PropTypes.string,
+  phoneHelperText: PropTypes.string,
+  optionHelperText: PropTypes.string,
+};
+
+Form.defaultProps = {
+  onSubmitData: () => {},
+  nameMaxLength: 20,
+  emailPattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+  phoneMaxLength: 10,
+  optionRequired: true,
+  messageRegister: {},
+  nameHelperText: 'Enter your name (Max 20 characters).',
+  emailHelperText: 'Enter a valid email address.',
+  phoneHelperText: 'Enter a 10-digit phone number.',
+  optionHelperText: 'Select at least one option.',
+};
