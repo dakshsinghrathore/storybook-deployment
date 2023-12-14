@@ -1,7 +1,37 @@
 import React from "react";
-import 'tailwindcss/tailwind.css';
+import "tailwindcss/tailwind.css";
+import { useForm } from "react-hook-form";
 
 export default function Form() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm();
+
+  // Use watch to track changes in form values
+  const name = watch("name");
+  const email = watch("email");
+  const phone = watch("phone");
+  const option = watch("option");
+
+  const [isNameValid, setIsNameValid] = React.useState(false);
+  const [isEmailValid, setIsEmailValid] = React.useState(false);
+  const [isPhoneValid, setIsPhoneValid] = React.useState(false);
+  const [isOptionValid, setIsOptionValid] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsNameValid(name?.length <= 30);
+    setIsEmailValid(email && /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email));
+    setIsPhoneValid(phone?.length === 10);
+    setIsOptionValid(  !!option);
+  }, [name, email, phone, option]);
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <div>
       <section className="bg-gray-100">
@@ -24,14 +54,14 @@ export default function Form() {
 
                 <address className="mt-2 not-italic">
                   {" "}
-                  Level 1, Phoenix Tech Tower Plot No : 14/46, Survey No.1, IDA
+                  Level 1, Phoenix Tech Tower Plot No: 14/46, Survey No.1, IDA
                   Uppal, Hyderabad, Telangana 500039
                 </address>
               </div>
             </div>
 
             <div className="rounded-lg bg-slate-200 p-8 shadow-lg lg:col-span-3 lg:p-12">
-              <form action="" className="space-y-4">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 <div>
                   <label className="sr-only" htmlFor="name">
                     Name
@@ -41,7 +71,9 @@ export default function Form() {
                     placeholder="Name"
                     type="text"
                     id="name"
+                    {...register("name", { maxLength: 30 })}
                   />
+                  {errors.name && <p className="text-red-600 text-sm">Name shouldn't be more than 30 characters.</p>}
                 </div>
 
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -54,7 +86,15 @@ export default function Form() {
                       placeholder="Email address"
                       type="email"
                       id="email"
+                      {...register("email", {
+                        required: "Email is required",
+                        pattern: {
+                          value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                          message: "Invalid email address",
+                        },
+                      })}
                     />
+                    {errors.email && <p className="text-red-600 text-sm">{errors.email.message}</p>}
                   </div>
 
                   <div>
@@ -66,7 +106,15 @@ export default function Form() {
                       placeholder="Phone Number"
                       type="tel"
                       id="phone"
+                      {...register("phone", {
+                        required: "Phone number is required",
+                        maxLength: {
+                          value: 10,
+                          message: "Phone number should not exceed 10 digits",
+                        },
+                      })}
                     />
+                    {errors.phone && <p className="text-red-600 text-sm">{errors.phone.message}</p>}
                   </div>
                 </div>
 
@@ -78,6 +126,7 @@ export default function Form() {
                       type="radio"
                       tabIndex="-1"
                       name="option"
+                      {...register("option", { required: true })}
                     />
 
                     <label
@@ -96,6 +145,7 @@ export default function Form() {
                       type="radio"
                       tabIndex="-1"
                       name="option"
+                      {...register("option", { required: true })}
                     />
 
                     <label
@@ -114,6 +164,7 @@ export default function Form() {
                       type="radio"
                       tabIndex="-1"
                       name="option"
+                      {...register("option", { required: true })}
                     />
 
                     <label
@@ -125,6 +176,7 @@ export default function Form() {
                     </label>
                   </div>
                 </div>
+                {errors.option && <p className="text-red-600 text-sm">Please select at least one option.</p>}
 
                 <div>
                   <label className="sr-only" htmlFor="message">
@@ -136,6 +188,7 @@ export default function Form() {
                     placeholder="Message"
                     rows="8"
                     id="message"
+                    {...register("message")}
                   ></textarea>
                 </div>
 
@@ -143,6 +196,7 @@ export default function Form() {
                   <button
                     type="submit"
                     className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
+                    disabled={Object.keys(errors).length > 0}
                   >
                     Send Enquiry
                   </button>
