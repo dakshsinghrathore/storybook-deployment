@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import "tailwindcss/tailwind.css";
 import { useForm } from "react-hook-form";
 
-export default function Form({ onSubmitData, nameMaxLength, emailPattern, phoneMaxLength, optionRequired, messageRegister, nameHelperText, emailHelperText, phoneHelperText, optionHelperText }) {
+export default function Form({ onSubmitData, nameMaxLength, emailPattern, phoneMaxLength, dobRequired, locationRequired, nameHelperText, emailHelperText, phoneHelperText }) {
   const {
     register,
     handleSubmit,
@@ -21,11 +21,7 @@ export default function Form({ onSubmitData, nameMaxLength, emailPattern, phoneM
           <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
             <div className="lg:col-span-2 lg:py-12">
               <p className="max-w-xl text-lg">
-                🚀 Explore the future of tech at{" "}
-                <span className="font-bold">NSEC!</span> 🌐 Specializing in CSE,
-                we offer cutting-edge programs, expert faculty, and industry
-                connections. 🌟 Ready to innovate? Fill the form and join us on
-                the journey!
+              🌟 Welcome to our <span className="font-bold">Health and Wellness</span> Resources Platform! 🌿 To better serve you, we kindly request that you complete the Moderator KYC Form provided adjacent. Your input helps us tailor our platform and ensures a safe and supportive community. Thank you for your cooperation! 🙏
               </p>
 
               <div className="mt-8">
@@ -49,14 +45,14 @@ export default function Form({ onSubmitData, nameMaxLength, emailPattern, phoneM
                     Name
                   </label>
                   <input
-                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                    placeholder="Name"
+                    className="w-full rounded-lg border-gray-200 p-3 text-xs"
+                    placeholder="Enter your full legal name"
                     type="text"
                     id="name"
                     {...register("name", { maxLength: nameMaxLength })}
                   />
                   {errors.name && <p className="text-red-600 text-sm">Name should not be more than 20 characters.</p>}
-                  <p className="text-gray-600 text-xs">{nameHelperText}</p>
+                  <p className="text-gray-600 text-xs antialiased">{nameHelperText}</p>
                 </div>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                   <div>
@@ -64,8 +60,8 @@ export default function Form({ onSubmitData, nameMaxLength, emailPattern, phoneM
                       Email
                     </label>
                     <input
-                      className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                      placeholder="Email address"
+                      className="w-full rounded-lg border-gray-200 p-3 text-xs"
+                      placeholder="Enter your primary email address"
                       type="email"
                       id="email"
                       {...register("email", {
@@ -77,15 +73,15 @@ export default function Form({ onSubmitData, nameMaxLength, emailPattern, phoneM
                       })}
                     />
                     {errors.email && <p className="text-red-600 text-sm">{errors.email.message}</p>}
-                    <p className="text-gray-600 text-xs">{emailHelperText}</p>
+                    <p className="text-gray-600 text-xs antialiased">{emailHelperText}</p>
                   </div>
                   <div>
                     <label className="sr-only" htmlFor="phone">
                       Phone
                     </label>
                     <input
-                      className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                      placeholder="Phone Number"
+                      className="w-full rounded-lg border-gray-200 p-3 text-xs"
+                      placeholder="Enter your phone number"
                       type="tel"
                       id="phone"
                       {...register("phone", {
@@ -97,92 +93,47 @@ export default function Form({ onSubmitData, nameMaxLength, emailPattern, phoneM
                       })}
                     />
                     {errors.phone && <p className="text-red-600 text-sm">{errors.phone.message}</p>}
-                    <p className="text-gray-600 text-xs">{phoneHelperText}</p>
+                    <p className="text-gray-600 text-xs antialised">{phoneHelperText}</p>
                   </div>
                 </div>
-
-                <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
-                  <div>
-                    <input
-                      className="peer sr-only"
-                      id="option1"
-                      type="radio"
-                      tabIndex="-1"
-                      name="option"
-                      {...register("option", { required: optionRequired })}
-                    />
-
-                    <label
-                      htmlFor="option1"
-                      className="block w-full rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black peer-checked:border-black peer-checked:bg-black peer-checked:text-white"
-                      tabIndex="0"
-                    >
-                      <span className="text-sm"> Admission </span>
-                    </label>
-                  </div>
-
-                  <div>
-                    <input
-                      className="peer sr-only"
-                      id="option2"
-                      type="radio"
-                      tabIndex="-1"
-                      name="option"
-                      {...register("option", { required: optionRequired })}
-                    />
-
-                    <label
-                      htmlFor="option2"
-                      className="block w-full rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black peer-checked:border-black peer-checked:bg-black peer-checked:text-white"
-                      tabIndex="0"
-                    >
-                      <span className="text-sm"> Courses </span>
-                    </label>
-                  </div>
-
-                  <div>
-                    <input
-                      className="peer sr-only"
-                      id="option3"
-                      type="radio"
-                      tabIndex="-1"
-                      name="option"
-                      {...register("option", { required: optionRequired })}
-                    />
-
-                    <label
-                      htmlFor="option3"
-                      className="block w-full rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black peer-checked:border-black peer-checked:bg-black peer-checked:text-white"
-                      tabIndex="0"
-                    >
-                      <span className="text-sm"> Events </span>
-                    </label>
-                  </div>
-                </div>
-                {errors.option && <p className="text-red-600 text-sm">Please select at least one option.</p>}
-                <p className="text-gray-600 text-xs">{optionHelperText}</p>
 
                 <div>
-                  <label className="sr-only" htmlFor="message">
-                    Message
+                  <label className="sr-only" htmlFor="dob">
+                    Date of Birth
                   </label>
+                  <input
+                    className="w-full rounded-lg border-gray-200 p-3 text-xs"
+                    placeholder="Enter your date of birth"
+                    type="date"
+                    id="dob"
+                    {...register("dob", { required: dobRequired })}
+                  />
+                  {errors.dob && <p className="text-red-600 text-sm">{errors.dob.message}</p>}
+                  <p className="text-gray-600 text-xs antialiased">Your date of birth helps us verify your eligibility for moderating our platform.</p>
+                </div>
 
-                  <textarea
-                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                    placeholder="Message"
-                    rows="8"
-                    id="message"
-                    {...register("message", messageRegister)}
-                  ></textarea>
+                <div>
+                  <label className="sr-only" htmlFor="location">
+                    Location
+                  </label>
+                  <input
+                    className="w-full rounded-lg border-gray-200 p-3 text-xs"
+                    placeholder="Enter your current city and country of residence"
+                    type="text"
+                    id="location"
+                    {...register("location", { required: locationRequired })}
+                  />
+                  {errors.location && <p className="text-red-600 text-sm">{errors.location.message}</p>}
+                  <p className="text-gray-600 text-xs antialiased">Let us know where you are located to understand the diversity of our moderator team.</p>
                 </div>
 
                 <div className="mt-4">
                   <button
                     type="submit"
-                    className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
+                    className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto antialiased"
                     disabled={Object.keys(errors).length > 0}
                   >
-                    Send Enquiry
+                    Submit
                   </button>
                 </div>
               </form>
@@ -197,14 +148,13 @@ export default function Form({ onSubmitData, nameMaxLength, emailPattern, phoneM
 Form.propTypes = {
   onSubmitData: PropTypes.func,
   nameMaxLength: PropTypes.number,
-  emailPattern: PropTypes.string,
+  emailPattern: PropTypes.object,
   phoneMaxLength: PropTypes.number,
-  optionRequired: PropTypes.bool,
-  messageRegister: PropTypes.object,
+  dobRequired: PropTypes.string,
+  locationRequired: PropTypes.string,
   nameHelperText: PropTypes.string,
   emailHelperText: PropTypes.string,
   phoneHelperText: PropTypes.string,
-  optionHelperText: PropTypes.string,
 };
 
 Form.defaultProps = {
@@ -212,10 +162,9 @@ Form.defaultProps = {
   nameMaxLength: 20,
   emailPattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
   phoneMaxLength: 10,
-  optionRequired: true,
-  messageRegister: {},
-  nameHelperText: 'Enter your name (Max 20 characters).',
-  emailHelperText: 'Enter a valid email address.',
+  dobRequired: 'Date of birth is required',
+  locationRequired: 'Location is required',
+  nameHelperText: ' Please provide your complete name as it appears on your identification document',
+  emailHelperText: 'We will use this email address for all communications regarding your moderator role.',
   phoneHelperText: 'Enter a 10-digit phone number.',
-  optionHelperText: 'Select at least one option.',
 };
