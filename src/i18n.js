@@ -7,6 +7,7 @@ i18n
     resources: {
       en: {
         translation: {
+          "personalInformation": "Personal Information",
           "Enter your full legal name": "Enter your full legal name",
           "Enter your primary email address": "Enter your primary email address",
           "Enter your phone number": "Enter your phone number",
@@ -19,11 +20,19 @@ i18n
           "Email helper text": "We will use this email address for all communications regarding your moderator role.",
           "Phone helper text": "Enter a 10-digit phone number.",
           "Date of Birth helper text": "Your date of birth helps us verify your eligibility for moderating our platform.",
-          "Location helper text": "Let us know where you are located to understand the diversity of our moderator team."
+          "Location helper text": "Let us know where you are located to understand the diversity of our moderator team.",
+          "Name should not be more than 20 characters.": "Name should not be more than 20 characters.",
+          "Email is required": "Email is required",
+          "Invalid email address": "Required field, must be a valid email address format",
+          "Phone number is required": "Phone number is required",
+          "Phone number should not exceed 10 digits": "Phone number should not exceed 10 digits",
+          "Date of birth is required": "Required field, must be a valid date",
+          "Location is required": "Required field",
         },
       },
       hi: {
         translation: {
+          "personalInformation": "पूर्ति जानकारी",
           "Enter your full legal name": "पूरा नाम",
           "Enter your primary email address": "ईमेल पता",
           "Enter your phone number": "संपर्क नंबर",
@@ -36,11 +45,19 @@ i18n
           "Email helper text": " हम आपकी मॉडरेटर भूमिका के संबंध में सभी संचार के लिए इस ईमेल पते का उपयोग करेंगे।",
           "Phone helper text": "एक पहुंच योग्य संपर्क नंबर प्रदान करें जहां जरूरत पड़ने पर हम आप तक पहुंच सकें।",
           "Date of Birth helper text": "आपकी जन्मतिथि हमें हमारे प्लेटफ़ॉर्म को मॉडरेट करने के लिए आपकी पात्रता सत्यापित करने में मदद करती है।",
-          "Location helper text": "हमारी मॉडरेटर टीम की विविधता को समझने के लिए हमें बताएं कि आप कहां स्थित हैं।"
+          "Location helper text": "हमारी मॉडरेटर टीम की विविधता को समझने के लिए हमें बताएं कि आप कहां स्थित हैं।",
+          "Name should not be more than 20 characters.": "आवश्यक फ़ील्ड",
+          "Email is required": "आवश्यक फ़ील्ड, एक वैध ईमेल पता प्रारूप होना चाहिए",
+          "Invalid email address": "अवैध ईमेल पता",
+          "Phone number is required": "फ़ोन नंबर आवश्यक है",
+          "Phone number should not exceed 10 digits": "फ़ोन नंबर 10 अंकों से अधिक नहीं होना चाहिए",
+          "Date of birth is required": "आवश्यक फ़ील्ड, केवल संख्यात्मक वर्ण",
+          "Location is required": "आवश्यक फ़ील्ड",
         },
       },
       te: {
         translation: {
+          "personalInformation": "వ్యక్తిగత సమాచారం",
           "Enter your full legal name": "పూర్తి పేరు",
           "Enter your primary email address": "ఇమెయిల్ చిరునామా",
           "Enter your phone number": " సంప్రదింపు సంఖ్య",
@@ -53,7 +70,14 @@ i18n
           "Email helper text": "మీ మోడరేటర్ పాత్రకు సంబంధించిన అన్ని కమ్యూనికేషన్‌ల కోసం మేము ఈ ఇమెయిల్ చిరునామాను ఉపయోగిస్తాము.",
           "Phone helper text": "అందుబాటులో ఉన్న సంప్రదింపు నంబర్‌ను అందించండి, అవసరమైతే మేము మిమ్మల్ని సంప్రదించవచ్చు.",
           "Date of Birth helper text": "మీ పుట్టిన తేదీ మా ప్లాట్‌ఫారమ్‌ని నియంత్రించడానికి మీ అర్హతను ధృవీకరించడంలో మాకు సహాయపడుతుంది..",
-          "Location helper text": "మా మోడరేటర్ బృందం యొక్క వైవిధ్యాన్ని అర్థం చేసుకోవడానికి మీరు ఎక్కడ ఉన్నారో మాకు తెలియజేయండి"
+          "Location helper text": "మా మోడరేటర్ బృందం యొక్క వైవిధ్యాన్ని అర్థం చేసుకోవడానికి మీరు ఎక్కడ ఉన్నారో మాకు తెలియజేయండి",
+          "Name should not be more than 20 characters.": "పేరు 20 అక్షరాలు పైగా ఉండాలి",
+          "Email is required": "అవసరమైన ఫీల్డ్, తప్పక చెల్లుబాటు అయ్యే ఇమెయిల్ చిరునామా ఫార్మాట్ అయి ఉండాలి",
+          "Invalid email address": "చెల్లని ఇమెయిల్ చిరునామా",
+          "Phone number is required": "అవసరమైన ఫీల్డ్, సంఖ్యా అక్షరాలు మాత్రమే",
+          "Phone number should not exceed 10 digits": "ఫోన్ నంబర్ 10 అంకెల పైగా ఉండకూడదు",
+          "Date of birth is required": "అవసరమైన ఫీల్డ్, తప్పనిసరిగా చెల్లుబాటు అయ్యే తేదీ అయి ఉండాలి",
+          "Location is required": "అవసరమైన ఫీల్డ్",
         },
       },
     },
